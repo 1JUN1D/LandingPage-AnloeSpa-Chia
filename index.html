@@ -1,0 +1,1547 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aloe Spa Chía - Bienestar y Relajación de Lujo</title>
+    <!-- Calendly badge widget begin -->
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+    <!-- Calendly badge widget end -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="cropped-Isotipo-Dorado-scaled-1.png" type="image/x-icon">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #000000;
+            color: #ffffff;
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 100%;
+            margin: 0 auto;
+            background: linear-gradient(180deg, #000000 0%, #0a0a0a 50%, #000000 100%);
+            box-shadow: 0 0 50px rgba(218, 165, 32, 0.3);
+            position: relative;
+        }
+
+        .bg-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(218, 165, 32, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(218, 165, 32, 0.03) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        header {
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(218, 165, 32, 0.3);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            background: rgba(0, 0, 0, 0.95);
+        }
+
+        .content-wrapper {
+            padding-top: 80px;
+        }
+
+        .btn-header {
+            background: linear-gradient(135deg, #DAA520 0%, #B8860B 100%);
+            border: none;
+            padding: 12px 24px;
+            border-radius: 30px;
+            color: #000;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(218, 165, 32, 0.3);
+        }
+
+        .btn-header:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(218, 165, 32, 0.5);
+        }
+
+        .spa-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            background: linear-gradient(135deg, #DAA520 0%, #FFD700 50%, #DAA520 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-transform: uppercase;
+            padding-left: 20px;
+        }
+
+        .audio-control {
+            position: fixed;
+            top: 180px;
+            right: 20px;
+            z-index: 1000;
+            background: rgba(218, 165, 32, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(218, 165, 32, 0.3);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .audio-control:hover {
+            background: rgba(218, 165, 32, 0.3);
+            transform: scale(1.1);
+        }
+
+        .audio-control.playing::before {
+            content: '🔊';
+            font-size: 24px;
+        }
+
+        .audio-control.paused::before {
+            content: '🔇';
+            font-size: 24px;
+        }
+
+        .hero {
+            padding: 40px 20px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.4;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .hero h1 .highlight {
+            background: linear-gradient(135deg, #DAA520 0%, #FFD700 50%, #DAA520 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: inline-block;
+        }
+
+        .hero-subtitle {
+            font-size: 14px;
+            color: #cccccc;
+            margin-bottom: 30px;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .banner-placeholder {
+            width: 100%;
+            height: 280px;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 30px 0;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid rgba(218, 165, 32, 0.3);
+            box-shadow: 0 10px 40px rgba(218, 165, 32, 0.2);
+        }
+
+        .banner-placeholder::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(218, 165, 32, 0.2), transparent);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .banner-text-overlay {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: #DAA520;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            z-index: 1;
+        }
+
+        .banner-text {
+            font-size: 11px;
+            color: #999;
+            margin-top: 15px;
+            font-style: italic;
+            font-weight: 300;
+        }
+
+        .info-section {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            padding: 30px 25px;
+            margin: 30px 20px;
+            border-radius: 20px;
+            border: 1px solid rgba(218, 165, 32, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+
+        .info-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, #DAA520 0%, #FFD700 50%, #DAA520 100%);
+            border-radius: 20px 0 0 20px;
+        }
+
+        .info-section h3 {
+            font-size: 13px;
+            margin-bottom: 20px;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
+        .map-container {
+            background: #000000;
+            border: 2px solid rgba(218, 165, 32, 0.3);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .map-placeholder {
+            color: #DAA520;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .location-icon {
+            font-size: 32px;
+            margin-top: 15px;
+            filter: drop-shadow(0 0 10px rgba(218, 165, 32, 0.5));
+        }
+
+        .schedule {
+            text-align: center;
+            font-style: italic;
+            color: #DAA520;
+            margin-top: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 15px;
+            padding: 30px 20px;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 18px;
+            border: none;
+            border-radius: 15px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #DAA520;
+            border: 2px solid #DAA520;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(218, 165, 32, 0.1);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(218, 165, 32, 0.3);
+        }
+
+        .btn-whatsapp {
+            background: linear-gradient(135deg, #DAA520 0%, #FFD700 100%);
+            color: #000;
+            font-weight: 700;
+            box-shadow: 0 8px 25px rgba(218, 165, 32, 0.4);
+        }
+
+        .btn-whatsapp:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(218, 165, 32, 0.6);
+        }
+
+        .location-section {
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .location-section h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: #DAA520;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .image-gallery {
+            display: flex;
+            gap: 15px;
+            overflow-x: auto;
+            padding: 15px 0;
+            margin-bottom: 30px;
+            scrollbar-width: thin;
+            scrollbar-color: #DAA520 #1a1a1a;
+        }
+
+        .image-gallery::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .image-gallery::-webkit-scrollbar-track {
+            background: #1a1a1a;
+            border-radius: 10px;
+        }
+
+        .image-gallery::-webkit-scrollbar-thumb {
+            background: linear-gradient(90deg, #DAA520, #FFD700);
+            border-radius: 10px;
+        }
+
+        .gallery-item {
+            min-width: 240px;
+            height: 420px;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #DAA520;
+            font-size: 11px;
+            border: 2px solid rgba(218, 165, 32, 0.3);
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+            border-color: #DAA520;
+            box-shadow: 0 8px 25px rgba(218, 165, 32, 0.4);
+        }
+
+        .services-section {
+            padding: 50px 20px;
+            background: linear-gradient(180deg, #000000 0%, #0a0a0a 100%);
+        }
+
+        .services-section h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 32px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #DAA520;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 40px;
+            border-bottom: 2px solid rgba(218, 165, 32, 0.2);
+            padding-bottom: 5px;
+            flex-wrap: wrap;
+        }
+
+        .tab {
+            flex: 1;
+            min-width: 100px;
+            padding: 15px 10px;
+            background: transparent;
+            border: none;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            color: #999;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .tab.active {
+            color: #DAA520;
+            border-bottom-color: #DAA520;
+        }
+
+        .tab:hover {
+            color: #FFD700;
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .service-card {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(218, 165, 32, 0.2);
+            transition: all 0.4s ease;
+        }
+
+        .service-card:hover {
+            border-color: #DAA520;
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(218, 165, 32, 0.3);
+        }
+
+        .service-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+            border-radius: 15px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #DAA520;
+            font-size: 13px;
+            font-weight: 600;
+            border: 2px solid rgba(218, 165, 32, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-image::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            border: 3px solid #DAA520;
+            border-radius: 50%;
+            opacity: 0.3;
+        }
+
+        .service-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #FFD700;
+            letter-spacing: 1px;
+        }
+
+        .service-description {
+            font-size: 13px;
+            color: #cccccc;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .service-features li {
+            padding: 8px 0;
+            font-size: 12px;
+            color: #ffffff;
+            font-weight: 400;
+        }
+
+        .service-features li::before {
+            content: '✨';
+            margin-right: 10px;
+        }
+
+        .service-price {
+            font-size: 28px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #DAA520 0%, #FFD700 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 20px 0;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .price-options {
+            font-size: 14px;
+            color: #ffffff;
+            margin: 10px 0;
+            font-weight: 400;
+        }
+
+        .price-options strong {
+            color: #DAA520;
+            font-weight: 600;
+        }
+
+        .btn-availability {
+            width: 100%;
+            background: linear-gradient(135deg, #DAA520 0%, #FFD700 100%);
+            color: #000;
+            padding: 16px;
+            border: none;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 8px 25px rgba(218, 165, 32, 0.4);
+        }
+
+        .btn-availability:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(218, 165, 32, 0.6);
+        }
+
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 65px;
+            height: 65px;
+            background: linear-gradient(135deg, #DAA520 0%, #FFD700 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 30px rgba(218, 165, 32, 0.6);
+            cursor: pointer;
+            z-index: 1000;
+            animation: pulse 2s infinite, float 3s ease-in-out infinite;
+            border: 3px solid #000;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 8px 30px rgba(218, 165, 32, 0.6);
+            }
+            50% {
+                box-shadow: 0 8px 40px rgba(218, 165, 32, 0.9);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .floating-whatsapp::before {
+            content: '';
+            display: inline-block;
+            width: 32px; /* ajusta el tamaño según tu logo */
+            height: 32px;
+            background-image: url('/pngimg.com\ -\ whatsapp_PNG21.png');
+            background-size: contain; /* ajusta el tamaño */
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+
+        footer {
+            background: linear-gradient(135deg, #000000 0%, #0a0a0a 100%);
+            color: #999;
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 11px;
+            border-top: 1px solid rgba(218, 165, 32, 0.2);
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        footer .gold-text {
+            color: #DAA520;
+            font-weight: 600;
+        }
+
+        .divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #DAA520, transparent);
+            margin: 50px 20px;
+            opacity: 0.3;
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                max-width: 100%;
+            }
+
+            header {
+                padding: 25px 50px;
+            }
+
+            .spa-name {
+                font-size: 28px;
+            }
+
+            .btn-header {
+                padding: 14px 30px;
+                font-size: 14px;
+            }
+
+            .hero {
+                padding: 60px 50px;
+            }
+
+            .hero h1 {
+                font-size: 48px;
+                max-width: 900px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-subtitle {
+                font-size: 18px;
+                max-width: 700px;
+                margin-left: auto;
+                margin-right: auto;
+                margin-bottom: 40px;
+            }
+
+            .banner-placeholder {
+                height: 400px;
+                max-width: 1000px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .banner-text-overlay {
+                font-size: 42px;
+            }
+
+            .info-section {
+                max-width: 900px;
+                margin-left: auto;
+                margin-right: auto;
+                padding: 40px 35px;
+            }
+
+            .info-section h3 {
+                font-size: 16px;
+            }
+
+            .cta-buttons {
+                max-width: 600px;
+                margin: 0 auto;
+                padding: 40px 20px;
+            }
+
+            .btn {
+                padding: 20px;
+                font-size: 16px;
+            }
+
+            .location-section {
+                padding: 70px 50px;
+            }
+
+            .location-section h2 {
+                font-size: 42px;
+            }
+
+            .image-gallery {
+                max-width: 1000px;
+                margin: 0 auto;
+                justify-content: center;
+            }
+
+            .gallery-item {
+                min-width: 200px;
+                height: 300px;
+                font-size: 14px;
+            }
+
+            .services-section {
+                padding: 70px 50px;
+            }
+
+            .services-section h2 {
+                font-size: 42px;
+            }
+
+            .tabs {
+                max-width: 800px;
+                margin-left: auto;
+                margin-right: auto;
+                margin-bottom: 50px;
+            }
+
+            .tab {
+                font-size: 16px;
+                padding: 18px 15px;
+            }
+
+            .tab-content {
+                max-width: 1200px;
+                margin: 0 auto;
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+                gap: 30px;
+            }
+
+            .tab-content.active {
+                display: grid;
+            }
+
+            #sauna.tab-content,
+            #masajes.tab-content {
+                grid-template-columns: 1fr;
+                max-width: 800px;
+            }
+
+            .service-card {
+                padding: 35px;
+                margin-bottom: 0;
+            }
+
+            .service-image {
+                height: 250px;
+            }
+
+            .service-title {
+                font-size: 28px;
+            }
+
+            .service-description {
+                font-size: 15px;
+            }
+
+            .service-features li {
+                font-size: 14px;
+                padding: 10px 0;
+            }
+
+            .price-options {
+                font-size: 16px;
+            }
+
+            .service-price {
+                font-size: 32px;
+            }
+
+            .btn-availability {
+                padding: 18px;
+                font-size: 16px;
+            }
+
+            .divider {
+                max-width: 1200px;
+                margin: 60px auto;
+            }
+
+            footer {
+                padding: 50px;
+                font-size: 13px;
+            }
+
+            .floating-whatsapp {
+                width: 70px;
+                height: 70px;
+                bottom: 30px;
+                right: 30px;
+            }
+
+            .floating-whatsapp::before {
+                font-size: 36px;
+            }
+
+            .audio-control {
+                top: 90px;
+                right: 50px;
+                width: 55px;
+                height: 55px;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .hero h1 {
+                font-size: 56px;
+                max-width: 1100px;
+            }
+
+            .hero-subtitle {
+                font-size: 20px;
+            }
+
+            .banner-placeholder {
+                height: 500px;
+                max-width: 1200px;
+            }
+
+            .banner-text-overlay {
+                font-size: 52px;
+            }
+
+            .info-section {
+                max-width: 1100px;
+            }
+
+            .cta-buttons {
+                max-width: 700px;
+            }
+
+            .image-gallery {
+                max-width: 1200px;
+            }
+
+            .gallery-item {
+                min-width: 250px;
+                height: 350px;
+            }
+
+            .tabs {
+                max-width: 900px;
+            }
+
+            .tab-content {
+                max-width: 1400px;
+            }
+
+            #sauna.tab-content,
+            #masajes.tab-content {
+                max-width: 900px;
+            }
+        }
+
+
+        .location-section {
+        padding: 50px 20px; /* o 70px 50px si prefieres más aire */
+        text-align: center;
+        }
+
+        .location-section h2 {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 32px;         /* o 42px si lo quieres grande */
+        font-weight: 700;
+        margin-bottom: 30px;
+        color: #DAA520;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        }
+
+        /* Galería en carrusel horizontal */
+        .image-gallery {
+        display: flex;
+        gap: 15px;
+        overflow-x: auto;
+        padding: 15px 0;
+        margin: 0 auto 30px;
+        max-width: 1200px;       /* centrada y contenida */
+        justify-content: flex-start;
+        scrollbar-width: thin;
+        scrollbar-color: #DAA520 #1a1a1a;
+        }
+
+        /* Scrollbar (WebKit) */
+        .image-gallery::-webkit-scrollbar { height: 8px; }
+        .image-gallery::-webkit-scrollbar-track {
+        background: #1a1a1a; border-radius: 10px;
+        }
+        .image-gallery::-webkit-scrollbar-thumb {
+        background: linear-gradient(90deg, #DAA520, #FFD700);
+        border-radius: 10px;
+        }
+
+        /* Item 9:16 vertical (no pantalla completa) */
+        .gallery-item {
+        flex: 0 0 auto;
+        width: 230px;           /* ancho visible (ajusta 200–280px) */
+        aspect-ratio: 9 / 16;   /* asegura formato vertical */
+        border-radius: 15px;
+        overflow: hidden;
+        border: 2px solid rgba(218, 165, 32, 0.3);
+        transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+        }
+
+        /* Imagen llena el contenedor sin deformarse */
+        .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;      /* recorta sin deformar */
+        display: block;
+        }
+
+        /* Hover sutil */
+        .gallery-item:hover {
+        transform: scale(1.03);
+        border-color: #DAA520;
+        box-shadow: 0 8px 25px rgba(218, 165, 32, 0.35);
+        }
+
+        /* Responsive: en móviles un poco más angosto */
+        @media (max-width: 600px) {
+        .gallery-item { width: 180px; }
+        .location-section { padding: 40px 16px; }
+        .location-section h2 { font-size: 28px; }
+        }
+
+
+
+        .banner-placeholder {
+            width: 100%;
+            max-width: 1200px;       /* ancho máximo centrado */
+            height: 500px;           /* altura del banner */
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 30px auto;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid rgba(218, 165, 32, 0.3);
+            box-shadow: 0 10px 40px rgba(218, 165, 32, 0.2);
+        }
+
+        /* ✨ Imagen dentro del banner */
+        .banner-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;    /* rellena el contenedor sin deformar */
+            object-position: center; /* centra la parte importante de la imagen */
+            display: block;
+            border-radius: 20px;
+        }
+
+        /* ✨ Efecto de brillo suave opcional (puedes dejarlo o quitarlo) */
+        .banner-placeholder::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(218, 165, 32, 0.2), transparent);
+            animation: shine 3s infinite;
+        }
+
+        /* ✨ Ajuste responsive */
+        @media (max-width: 768px) {
+            .banner-placeholder {
+                height: 300px;   /* más pequeño en pantallas móviles */
+            }
+        }
+
+
+        .service-image {
+            width: 100%;
+            aspect-ratio: 1 / 1; /* mantiene la forma cuadrada */
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+            border-radius: 15px;
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid rgba(218, 165, 32, 0.3);
+            box-shadow: 0 10px 25px rgba(218, 165, 32, 0.2);
+        }
+
+        /* ✨ Imagen dentro del contenedor */
+        .service-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;      /* llena el espacio sin deformarse */
+            object-position: center; /* centra la parte más importante */
+            display: block;
+            border-radius: 15px;
+        }
+
+        /* 🔆 Elimina el anillo decorativo si no lo necesitas */
+        .service-image::before {
+            display: none;
+        }
+
+        /* ✨ Opcional: efecto hover para hacerlo más elegante */
+        .service-image:hover img {
+            transform: scale(1.05);
+            transition: transform 0.4s ease;
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <div class="bg-pattern"></div>
+    
+    <!-- Audio de fondo -->
+    <audio id="bgMusic" loop>
+        <source src="/Frecuencia de la Salud y Los Milagros _ Repara el ADN _ Tono Solfeggio 528 Hz _ 20 Min x Día MINIMO. [8fUWEKa3rjg].mp3" type="audio/mpeg">
+    </audio>
+    
+    <div class="audio-control playing" id="audioControl"></div>
+
+    <div class="container">
+        <header>
+            <button class="btn-header" onclick="scrollToServices()">RESERVAR</button>
+            <div class="spa-name">Anloe Spa Chía</div>
+            <div style="width: 100px;"></div>
+        </header>
+
+        <div class="content-wrapper">
+        <section class="hero">
+            <h1>
+                Bienvenidos a <span class="highlight">Anloe Spa Chía</span>
+            </h1>
+            <p class="hero-subtitle">Tu Oasis de Bienestar y Relajación de Lujo en Chía</p>
+            
+            
+            <div class="banner-placeholder">
+                <img src="/instalacion.jpg" alt="Banner" class="banner-image">
+            </div>
+            
+
+            <!--
+            <div class="banner-placeholder">
+                <video autoplay muted loop playsinline class="banner-video">
+                    <source src="/2.mp4" type="video/mp4">
+                    Tu navegador no soporta el video.
+                </video>
+            </div>
+            -->
+
+
+            <div class="info-section">
+                <h3>Ubicados en el corazón de Chía, nuestro spa es de fácil acceso y está diseñado para brindarte una experiencia de bienestar única. Contamos con estacionamiento privado y todas las comodidades para que tu visita sea perfecta.</h3>
+                
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3975.473029764783!2d-74.05166838939387!3d4.860108395095189!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f8718ee01755f%3A0x7731ebe5e31624d4!2sAnloe%20Spa%20%7C%20Spa%20Chia!5e0!3m2!1ses!2sus!4v1760395784506!5m2!1ses!2sus" 
+                            width="100%" 
+                            height="300" 
+                            style="border:0; border-radius: 10px;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+                
+                <div class="schedule">Estamos abiertos de lunes a sábado de 8:00 a. m. a 7:00 p. m., y los domingos de 8:00 a. m. a 12:00 p. m.</div>
+            </div>
+
+            <div class="cta-buttons">
+                <button class="btn btn-secondary" onclick="scrollToServices()">Ver servicios</button>
+                <button class="btn btn-whatsapp" onclick="scrollToServices()">Reservar Ahora</button>
+            </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <section class="location-section">
+            <h2>Nuestro Lugar</h2>
+            <div class="image-gallery">
+                <div class="gallery-item">
+                <img src="/instalacion1.jpeg" alt="Instalación 1">
+                </div>
+                <div class="gallery-item">
+                <img src="/instalacion2.jpeg" alt="Instalación 2">
+                </div>
+                <div class="gallery-item">
+                <img src="/instalacion3.jpeg" alt="Instalación 3">
+                </div>
+                <div class="gallery-item">
+                <img src="/instalacion4.jpeg" alt="Instalación 4">
+                </div>
+                <div class="gallery-item">
+                <img src="/instalacion5.jpeg" alt="Instalación 4">
+                </div>
+                <div class="gallery-item">
+                <img src="/instalacion6.jpeg" alt="Instalación 4">
+                </div>
+                <div class="gallery-item">
+                <img src="/instalacion7.jpeg" alt="Instalación 4">
+                </div>
+            </div>
+        </section>
+
+
+        <div class="divider"></div>
+
+        <section class="services-section" id="servicios">
+            <h2>Nuestros Servicios</h2>
+            
+            <div class="tabs">
+                <button class="tab active" onclick="showTab('paquetes')">Paquetes</button>
+                <button class="tab" onclick="showTab('sauna')">Sauna</button>
+                <button class="tab" onclick="showTab('masajes')">Masajes</button>
+                <button class="tab" onclick="showTab('faciales')">Faciales</button>
+            </div>
+
+            <!-- Tab Paquetes (Ahora primero) -->
+            <div id="paquetes" class="tab-content active">
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="/paquete1.jpg" alt="Plan Cinema Sauna" class="service-img">
+                    </div>
+                    <div class="service-title">🌟 Plan 1 – Cinema Sauna</div>
+                    <div class="service-description">
+                        Disfruta 40 minutos de sauna infrarrojo para desintoxicar tu cuerpo y relajar músculos profundamente, seguido de un masaje relajante de 50 minutos que libera todas las tensiones acumuladas y renueva tu energía vital por completo.
+                    </div>
+                    <div class="price-options">👉 Para 1 persona: <strong>$180.000</strong></div>
+                    <div class="price-options">👉 Para 2 personas: <strong>$270.000</strong></div>
+                    <button class="btn-availability" onclick="openCalendlypaquete1()">Reservar Ahora</button>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="/facial3.jpeg" alt="Plan Cinema Sauna" class="service-img">
+                    </div>
+                    <div class="service-title">🌟 Plan 2 – Cinema Facial</div>
+                    <div class="service-description">
+                        Comienza con 50 minutos en el sauna infrarrojo que ayuda a abrir los poros y mejorar la circulación cutánea, y finaliza con una limpieza facial básica profesional que devuelve frescura, suavidad y luminosidad natural a tu piel.
+                    </div>
+                    <div class="price-options">👉 Para 1 persona: <strong>$195.000</strong></div>
+                    <div class="price-options">👉 Para 2 personas: <strong>$312.000</strong></div>
+                    <button class="btn-availability" onclick="openCalendlypaquete2()">Reservar Ahora</button>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="/masaje2.jpg" alt="Plan Cinema Sauna" class="service-img">
+                    </div>
+                    <div class="service-title">🌟 Plan 3 – Relax & Glow ✨</div>
+                    <div class="service-description">
+                        Vive una experiencia radiante y transformadora: masaje relajante de 50 minutos para liberar tensiones profundas, seguido de un facial hidratante y revitalizante que deja tu piel fresca, luminosa y con un glow natural espectacular.
+                    </div>
+                    <div class="price-options">👉 Para 1 persona: <strong>$260.000</strong></div>
+                    <div class="price-options">👉 Para 2 personas: <strong>$494.000</strong></div>
+                    <button class="btn-availability" onclick="openCalendlypaquete3()">Reservar Ahora</button>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="/spa.jpg" alt="Plan Cinema Sauna" class="service-img">
+                    </div>
+                    <div class="service-title">🌟 Plan 4 – Experiencia Completa</div>
+                    <div class="service-description">
+                        Un circuito completo de bienestar y lujo: 40 minutos de sauna infrarrojo, masaje relajante de 50 minutos y limpieza facial básica. La combinación perfecta para consentir cuerpo y rostro en una sola experiencia inolvidable de relajación total.
+                    </div>
+                    <div class="price-options">👉 Para 1 persona: <strong>$300.000</strong></div>
+                    <div class="price-options">👉 Para 2 personas: <strong>$570.000</strong></div>
+                    <button class="btn-availability" onclick="openCalendlypaquete4()">Reservar Ahora</button>
+                </div>
+            </div>
+
+            <!-- Tab Sauna -->
+            <div id="sauna" class="tab-content">
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="/saunaa.jpeg" alt="Plan Cinema Sauna" class="service-img">
+                    </div>
+                    <div class="service-title">🔥 Sauna Infrarrojo</div>
+                    <div class="service-description">
+                        Nuestro sauna infrarrojo es el primero y único en la Sabana Norte de Bogotá 🌿✨. A diferencia del sauna tradicional, calienta tu cuerpo desde adentro usando luz infrarroja, proporcionando una experiencia de relajación profunda y desintoxicación efectiva.
+                    </div>
+                    <ul class="service-features">
+                        <li>Desintoxicar y eliminar toxinas del cuerpo</li>
+                        <li>Mejorar la circulación y aliviar dolores musculares</li>
+                        <li>Reducir el estrés y relajar profundamente</li>
+                        <li>Favorecer la salud y luminosidad de la piel</li>
+                    </ul>
+                    <div class="price-options">👤 Para 1 persona: <strong>$60.000</strong></div>
+                    <div class="price-options">👥 Para 2 personas: <strong>$90.000</strong></div>
+                    <button class="btn-availability" onclick="openCalendlysauna()">Reservar Ahora</button>
+                </div>
+            </div>
+
+            <!-- Tab Masajes -->
+            <div id="masajes" class="tab-content">
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="/relajante.jpg" alt="Plan Cinema Sauna" class="service-img">
+                    </div>
+                    <div class="service-title">🌿 Masaje Relajante</div>
+                    <div class="service-description">
+                        Una experiencia diseñada para liberar el estrés acumulado, calmar la mente y relajar profundamente el cuerpo. Utilizamos movimientos suaves y envolventes, combinados con aromaterapia y aceites tibios para mejorar la circulación y generar una sensación de descanso total. Ideal para quienes buscan desconectarse y recuperar su equilibrio emocional.
+                    </div>
+                    <div class="price-options">⏳ 30 minutos: <strong>$70.000</strong> (2 personas: <strong>$119.000</strong>)</div>
+                    <div class="price-options">⏳ 60 minutos: <strong>$130.000</strong> (2 personas: <strong>$221.000</strong>)</div>
+                    <div class="price-options">⏳ 90 minutos: <strong>$180.000</strong> (2 personas: <strong>$306.000</strong>)</div>
+                    <div class="price-options">⏳ 120 minutos: <strong>$230.000</strong> (2 personas: <strong>$391.000</strong>)</div>
+                    <button class="btn-availability" onclick="openCalendlymasajesrelajante()">Reservar Ahora</button>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="/deportivo.jpeg" alt="Plan Cinema Sauna" class="service-img">
+                    </div>
+                    <div class="service-title">💪 Masaje Deportivo</div>
+                    <div class="service-description">
+                        Enfocado en personas activas o que practican ejercicio con frecuencia. Trabajamos grupos musculares específicos para mejorar el rendimiento, aliviar tensiones, prevenir lesiones y acelerar la recuperación. Incluye técnicas de estiramiento y presión más profunda en zonas de sobrecarga muscular. Perfecto antes o después del entrenamiento.
+                    </div>
+                    <div class="price-options">⏳ 60 minutos: <strong>$145.000</strong> (2 personas: <strong>$246.500</strong>)</div>
+                    <div class="price-options">⏳ 90 minutos: <strong>$200.000</strong> (2 personas: <strong>$340.000</strong>)</div>
+                    <div class="price-options">⏳ 120 minutos: <strong>$250.000</strong> (2 personas: <strong>$425.000</strong>)</div>
+                    <button class="btn-availability" onclick="openCalendlymasajesdeportivo()">Reservar Ahora</button>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="/tejidoprofundo.jpeg" alt="Plan Cinema Sauna" class="service-img">
+                    </div>
+                    <div class="service-title">🎯 Masaje de Tejido Profundo</div>
+                    <div class="service-description">
+                        Terapia intensa dirigida a capas musculares internas y puntos de tensión crónica. Empleamos presión firme y movimientos lentos que ayudan a liberar contracturas, mejorar la movilidad y aliviar dolores persistentes en cuello, espalda, hombros o piernas. Recomendado para personas con estrés físico acumulado o posturas prolongadas.
+                    </div>
+                    <div class="price-options">⏳ 60 minutos: <strong>$140.000</strong> (2 personas: <strong>$238.000</strong>)</div>
+                    <div class="price-options">⏳ 90 minutos: <strong>$190.000</strong> (2 personas: <strong>$323.000</strong>)</div>
+                    <div class="price-options">⏳ 120 minutos: <strong>$235.000</strong> (2 personas: <strong>$399.500</strong>)</div>
+                    <button class="btn-availability" onclick="openCalendlymasajetejidoprofundo()">Reservar Ahora</button>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="/prenatal.jpeg" alt="Plan Cinema Sauna" class="service-img">
+                    </div>
+                    <div class="service-title">🤱 Masaje Prenatal</div>
+                    <div class="service-description">
+                        Un masaje suave y seguro especialmente diseñado para futuras mamás. Alivia dolor lumbar, hinchazón en piernas, tensión en hombros y mejora la circulación. Se realiza con posiciones cómodas, apoyo de cojines y técnicas adaptadas a cada etapa del embarazo. Se recomienda practicarlo después de iniciar el segundo trimestre. Brinda bienestar físico y emocional tanto para la madre como para el bebé.
+                    </div>
+                    <div class="price-options">⏳ 30 minutos: <strong>$89.000</strong></div>
+                    <div class="price-options">⏳ 60 minutos: <strong>$149.000</strong></div>
+                    <div class="price-options">⏳ 90 minutos: <strong>$189.000</strong></div>
+                    <button class="btn-availability" onclick="openCalendlymasajesprenatal()">Reservar Ahora</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tab Faciales -->
+        <div id="faciales" class="tab-content">
+            <div class="service-card">
+                <div class="service-image">
+                        <img src="/facial1.jpeg" alt="Plan Cinema Sauna" class="service-img">
+                </div>
+                <div class="service-title">✨ Limpieza Facial Integral</div>
+                <div class="service-description">
+                    Tratamiento facial completo que incluye: análisis personalizado de piel, sesión de yoga facial, higienización, exfoliación con carbón activado, mascarilla peeling enzimático, extracción de impurezas, mascarilla calmante de aloe vera, crioterapia, drenaje linfático, mascarilla de alta hidratación, velo de colágeno, rodillo de jade y protección solar.
+                </div>
+                <div class="service-price">$140.000</div>
+                <div class="price-options">👥 Para 2 personas: <strong>$238.000</strong></div>
+                <div class="price-options">⏳ Duración: <strong>60 minutos</strong></div>
+                <button class="btn-availability" onclick="openCalendlylimpiezafacialintegral()">Reservar Ahora</button>
+            </div>
+
+            <div class="service-card">
+                <div class="service-image">
+                        <img src="/facial.jpg" alt="Plan Cinema Sauna" class="service-img">
+                </div>
+                <div class="service-title">🌸 Limpieza Facial Básica</div>
+                <div class="service-description">
+                    Higienización de la piel, exfoliación suave para dar luminosidad, extracción ligera de puntos negros, mascarilla según tipo de piel (calmante, hidratante o purificante), aplicación de tónico y crema hidratante, y protección solar al finalizar.
+                </div>
+                <div class="service-price">$125.000</div>
+                <div class="price-options">👥 Para 2 personas: <strong>$212.000</strong></div>
+                <div class="price-options">⏳ Duración: <strong>45 minutos</strong></div>
+                <button class="btn-availability" onclick="openCalendlylimpiezafacialbasica()">Reservar Ahora</button>
+            </div>
+
+            <div class="service-card">
+                <div class="service-image">
+                        <img src="/facial2.jpeg" alt="Plan Cinema Sauna" class="service-img">
+                </div>
+                <div class="service-title">💧 Facial Hidratante y Revitalizante</div>
+                <div class="service-description">
+                    Limpieza suave, exfoliación ligera, tónico hidratante, mascarilla revitalizante personalizada, masaje facial relajante para efecto glow inmediato, crema hidratante y protección solar. Ideal para dar luminosidad y frescura instantánea a tu piel.
+                </div>
+                <div class="service-price">$95.000</div>
+                <div class="price-options">👥 Para 2 personas: <strong>$160.000</strong></div>
+                <div class="price-options">⏳ Duración: <strong>40 minutos</strong></div>
+                <button class="btn-availability" onclick="openCalendlyfacialhidratanterevitalizante()">Reservar Ahora</button>
+            </div>
+        </div>
+        
+        
+
+        <div class="divider"></div>
+
+        <footer>
+            <p class="gold-text">© 2025 Aloe Spa Chía</p>
+            <p>Todos los derechos reservados</p>
+            <p style="margin-top: 15px;">Chía, Cundinamarca - Colombia</p>
+            <p style="margin-top: 10px; color: #DAA520;">Tu destino de lujo para el bienestar y la relajación</p>
+        </footer>
+
+        <div class="floating-whatsapp" onclick="openWhatsApp()"></div>
+        </div>
+    </div>
+
+    <script>
+        // Control de música de fondo
+        const bgMusic = document.getElementById('bgMusic');
+        const audioControl = document.getElementById('audioControl');
+        let isPlaying = false;
+
+        // Función para iniciar música
+        function startMusic() {
+            bgMusic.play().then(() => {
+                isPlaying = true;
+                audioControl.classList.add('playing');
+                audioControl.classList.remove('paused');
+            }).catch((error) => {
+                console.log('Autoplay bloqueado:', error);
+                isPlaying = false;
+                audioControl.classList.add('paused');
+                audioControl.classList.remove('playing');
+            });
+        }
+
+        // Intentar reproducir música automáticamente cuando carga la página
+        window.addEventListener('load', () => {
+            // Establecer volumen bajo para mejor experiencia
+            bgMusic.volume = 0.3;
+            startMusic();
+        });
+
+        // Intentar reproducir en el primer click/interacción del usuario
+        document.addEventListener('click', function initAudio() {
+            if (!isPlaying) {
+                startMusic();
+            }
+            // Remover el listener después del primer click
+            document.removeEventListener('click', initAudio);
+        }, { once: true });
+
+        // También intentar con scroll
+        document.addEventListener('scroll', function initAudioScroll() {
+            if (!isPlaying) {
+                startMusic();
+            }
+            document.removeEventListener('scroll', initAudioScroll);
+        }, { once: true });
+
+        // Control manual de audio
+        audioControl.addEventListener('click', (e) => {
+            e.stopPropagation(); // Evitar que dispare otros eventos
+            if (isPlaying) {
+                bgMusic.pause();
+                isPlaying = false;
+                audioControl.classList.add('paused');
+                audioControl.classList.remove('playing');
+            } else {
+                bgMusic.play().then(() => {
+                    isPlaying = true;
+                    audioControl.classList.add('playing');
+                    audioControl.classList.remove('paused');
+                });
+            }
+        });
+
+        // Funciones de navegación
+        function showTab(tabName) {
+            const tabs = document.querySelectorAll('.tab');
+            const contents = document.querySelectorAll('.tab-content');
+            
+            tabs.forEach(tab => tab.classList.remove('active'));
+            contents.forEach(content => content.classList.remove('active'));
+            
+            event.target.classList.add('active');
+            document.getElementById(tabName).classList.add('active');
+            
+            // Scroll suave al contenido
+            setTimeout(() => {
+                document.getElementById(tabName).scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'nearest'
+                });
+            }, 100);
+        }
+
+        function scrollToServices() {
+            document.getElementById('servicios').scrollIntoView({ 
+                behavior: 'smooth'
+            });
+        }
+
+        function openWhatsApp() {
+            const phoneNumber = '573134972564';
+            const message = encodeURIComponent('Hola! Me gustaría información sobre los servicios de Aloe Spa Chía 🌿✨');
+            window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
+        }
+
+
+
+        function openCalendlysauna() {
+            // Reemplaza con TU enlace de Calendly
+            Calendly.initPopupWidget({url: 'https://calendly.com/cusig-info/sauna'});
+            return false;
+        }
+
+        function openCalendlymasajesrelajante() {
+            // Reemplaza con TU enlace de Calendly
+            Calendly.initPopupWidget({url: 'https://calendly.com/cusig-info/masajes-relajante'});
+            return false;
+        }
+
+        function openCalendlymasajesdeportivo() {
+            // Reemplaza con TU enlace de Calendly
+            Calendly.initPopupWidget({url: 'https://calendly.com/cusig-info/masajes-deportivo'});
+            return false;
+        }
+
+        function openCalendlymasajetejidoprofundo() {
+            // Reemplaza con TU enlace de Calendly
+            Calendly.initPopupWidget({url: 'https://calendly.com/cusig-info/masajes-tejido-profundo'});
+            return false;
+        }
+
+        function openCalendlymasajesprenatal() {
+            // Reemplaza con TU enlace de Calendly
+            Calendly.initPopupWidget({url: 'https://calendly.com/cusig-info/masajes-prenatal'});
+            return false;
+        }
+
+        function openCalendlylimpiezafacialintegral() {
+            // Reemplaza con TU enlace de Calendly
+            Calendly.initPopupWidget({url: 'https://calendly.com/cusig-info/limpieza-facial-integral'});
+            return false;
+        }
+
+        function openCalendlylimpiezafacialbasica() {
+            // Reemplaza con TU enlace de Calendly
+            Calendly.initPopupWidget({url: 'https://calendly.com/cusig-info/limpieza-facial-basica'});
+            return false;
+        }
+
+        function openCalendlyfacialhidratanterevitalizante() {
+            // Reemplaza con TU enlace de Calendly
+            Calendly.initPopupWidget({url: 'https://calendly.com/cusig-info/facial-hidratante-revitalizante'});
+            return false;
+        }
+
+        function openCalendlypaquete1() {
+            // Reemplaza con TU enlace de Calendly
+            Calendly.initPopupWidget({url: 'https://calendly.com/cusig-info/paquete1'});
+            return false;
+        }
+
+
+        function openCalendlypaquete2() {
+            // Reemplaza con TU enlace de Calendly
+            Calendly.initPopupWidget({url: 'https://calendly.com/cusig-info/paquete2'});
+            return false;
+        }
+
+        function openCalendlypaquete3() {
+            // Reemplaza con TU enlace de Calendly
+            Calendly.initPopupWidget({url: 'https://calendly.com/cusig-info/paquete3'});
+            return false;
+        }
+
+        function openCalendlypaquete4() {
+            // Reemplaza con TU enlace de Calendly
+            Calendly.initPopupWidget({url: 'https://calendly.com/cusig-info/paquete4'});
+            return false;
+        }
+
+
+
+
+        // Efecto parallax suave en scroll
+        let ticking = false;
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    const scrolled = window.pageYOffset;
+                    const parallaxElements = document.querySelectorAll('.service-card');
+                    
+                    parallaxElements.forEach((element, index) => {
+                        const speed = 0.5;
+                        const yPos = -(scrolled * speed);
+                        element.style.transform = `translateY(${yPos * 0.02}px)`;
+                    });
+                    
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
+    </script>
+</body>
+</html>
