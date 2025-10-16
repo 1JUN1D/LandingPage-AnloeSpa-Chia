@@ -4,6 +4,133 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>anloe Spa Chía - Bienestar y Relajación de Lujo</title>
+    
+    <!-- Google tag (gtag.js) - Google Ads -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17658828097"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-17658828097');
+    </script>
+    
+    <!-- Google tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RWMSK1BL9G"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-RWMSK1BL9G');
+    </script>
+    
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '847608921172920');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=847608921172920&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+    
+    <!-- FUNCIONES DE TRACKING PARA GOOGLE ADS Y META -->
+    <script>
+    // Función para tracking de WhatsApp (Contacto)
+    function trackWhatsAppLead(whatsappUrl, eventLabel) {
+        try {
+            // Google Ads Conversion
+            gtag('event', 'conversion', {
+                'send_to': 'AW-17658828097/6_ZICLDjv64bEMGqseRB',
+                'value': 10000,
+                'currency': 'COP',
+                'event_callback': function() {
+                    window.open(whatsappUrl, '_blank');
+                }
+            });
+            
+            // Meta Pixel Event
+            if (typeof fbq === 'function') {
+                fbq('trackCustom', 'WhatsAppContactSpa', {
+                    event_label: eventLabel,
+                    value: 10000,
+                    currency: 'COP'
+                });
+            }
+            
+            // Google Analytics Event
+            gtag('event', 'generate_lead', {
+                'event_category': 'engagement',
+                'event_label': eventLabel,
+                'value': 1000
+            });
+            
+        } catch (error) {
+            console.error('Error en tracking:', error);
+            window.open(whatsappUrl, '_blank');
+        }
+        return false;
+    }
+    
+    // Función para tracking de Calendly (Reserva de cita)
+    function trackCalendlyReserva(serviceType, serviceValue) {
+        try {
+            // Google Ads Conversion
+            gtag('event', 'conversion', {
+                'send_to': 'AW-17658828097/dD6JCMiEua4bEMGqseRB',
+                'value': serviceValue,
+                'currency': 'COP',
+                'transaction_id': Date.now(),
+                'event_label': serviceType
+            });
+            
+            // Meta Pixel Event
+            if (typeof fbq === 'function') {
+                fbq('track', 'Schedule', {
+                    service_name: serviceType,
+                    value: serviceValue,
+                    currency: 'COP',
+                    content_type: 'service'
+                });
+            }
+            
+            // Google Analytics Event
+            gtag('event', 'book_appointment', {
+                'event_category': 'booking',
+                'event_label': serviceType,
+                'value': serviceValue
+            });
+            
+            console.log(`Reserva tracked: ${serviceType} - $${serviceValue}`);
+        } catch (error) {
+            console.error('Error en tracking Calendly:', error);
+        }
+    }
+    
+    // Función auxiliar para eventos personalizados de Meta
+    function fbqTrackCustomEvent(eventName, serviceName, serviceId) {
+        try {
+            if (typeof fbq === 'function') {
+                fbq('trackCustom', eventName, {
+                    service_name: serviceName,
+                    service_id: serviceId,
+                    timestamp: new Date().getTime()
+                });
+                console.log('Evento Meta registrado:', eventName, serviceName);
+            }
+        } catch (error) {
+            console.error('Error al registrar evento Meta:', error);
+        }
+    }
+    </script>
+    
     <!-- Calendly badge widget begin -->
     <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
     <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
@@ -1079,16 +1206,6 @@
             </div>
             
 
-            <!--
-            <div class="banner-placeholder">
-                <video autoplay muted loop playsinline class="banner-video">
-                    <source src="/2.mp4" type="video/mp4">
-                    Tu navegador no soporta el video.
-                </video>
-            </div>
-            -->
-
-
             <div class="info-section">
                 <h3>Ubicados en el corazón de Chía, nuestro spa es de fácil acceso y está diseñado para brindarte una experiencia de bienestar única. Contamos con estacionamiento privado y todas las comodidades para que tu visita sea perfecta.</h3>
                 
@@ -1166,7 +1283,7 @@
                     </div>
                     <div class="price-options">👉 Para 1 persona: <strong>$180.000</strong></div>
                     <div class="price-options">👉 Para 2 personas: <strong>$270.000</strong></div>
-                    <button class="btn-availability" onclick="openCalendlypaquete1()">Reservar Ahora</button>
+                    <button class="btn-availability" onclick="fbqTrackCustomEvent('Paquete1Click', 'Plan Cinema Sauna', 'paquete1'); trackCalendlyReserva('paquete1_cinema_sauna', 180000); openCalendlypaquete1()">Reservar Ahora</button>
                 </div>
 
                 <div class="service-card">
@@ -1179,7 +1296,7 @@
                     </div>
                     <div class="price-options">👉 Para 1 persona: <strong>$195.000</strong></div>
                     <div class="price-options">👉 Para 2 personas: <strong>$312.000</strong></div>
-                    <button class="btn-availability" onclick="openCalendlypaquete2()">Reservar Ahora</button>
+                    <button class="btn-availability" onclick="fbqTrackCustomEvent('Paquete2Click', 'Plan Cinema Facial', 'paquete2'); trackCalendlyReserva('paquete2_cinema_facial', 195000); openCalendlypaquete2()">Reservar Ahora</button>
                 </div>
 
                 <div class="service-card">
@@ -1192,7 +1309,7 @@
                     </div>
                     <div class="price-options">👉 Para 1 persona: <strong>$260.000</strong></div>
                     <div class="price-options">👉 Para 2 personas: <strong>$494.000</strong></div>
-                    <button class="btn-availability" onclick="openCalendlypaquete3()">Reservar Ahora</button>
+                    <button class="btn-availability" onclick="fbqTrackCustomEvent('Paquete3Click', 'Plan Relax & Glow', 'paquete3'); trackCalendlyReserva('paquete3_relax_glow', 260000); openCalendlypaquete3()">Reservar Ahora</button>
                 </div>
 
                 <div class="service-card">
@@ -1205,7 +1322,7 @@
                     </div>
                     <div class="price-options">👉 Para 1 persona: <strong>$300.000</strong></div>
                     <div class="price-options">👉 Para 2 personas: <strong>$570.000</strong></div>
-                    <button class="btn-availability" onclick="openCalendlypaquete4()">Reservar Ahora</button>
+                    <button class="btn-availability" onclick="fbqTrackCustomEvent('Paquete4Click', 'Plan Experiencia Completa', 'paquete4'); trackCalendlyReserva('paquete4_experiencia_completa', 300000); openCalendlypaquete4()">Reservar Ahora</button>
                 </div>
             </div>
 
@@ -1227,7 +1344,7 @@
                     </ul>
                     <div class="price-options">👤 Para 1 persona: <strong>$60.000</strong></div>
                     <div class="price-options">👥 Para 2 personas: <strong>$90.000</strong></div>
-                    <button class="btn-availability" onclick="openCalendlysauna()">Reservar Ahora</button>
+                    <button class="btn-availability" onclick="fbqTrackCustomEvent('SaunaClick', 'Sauna Infrarrojo', 'sauna_infrarojo'); trackCalendlyReserva('sauna_infrarojo', 60000); openCalendlysauna()">Reservar Ahora</button>
                 </div>
             </div>
 
@@ -1245,7 +1362,7 @@
                     <div class="price-options">⏳ 60 minutos: <strong>$130.000</strong> (2 personas: <strong>$221.000</strong>)</div>
                     <div class="price-options">⏳ 90 minutos: <strong>$180.000</strong> (2 personas: <strong>$306.000</strong>)</div>
                     <div class="price-options">⏳ 120 minutos: <strong>$230.000</strong> (2 personas: <strong>$391.000</strong>)</div>
-                    <button class="btn-availability" onclick="openCalendlymasajesrelajante()">Reservar Ahora</button>
+                    <button class="btn-availability" onclick="fbqTrackCustomEvent('MasajeRelajanteClick', 'Masaje Relajante', 'masaje_relajante'); trackCalendlyReserva('masaje_relajante', 130000); openCalendlymasajesrelajante()">Reservar Ahora</button>
                 </div>
 
                 <div class="service-card">
@@ -1259,7 +1376,7 @@
                     <div class="price-options">⏳ 60 minutos: <strong>$145.000</strong> (2 personas: <strong>$246.500</strong>)</div>
                     <div class="price-options">⏳ 90 minutos: <strong>$200.000</strong> (2 personas: <strong>$340.000</strong>)</div>
                     <div class="price-options">⏳ 120 minutos: <strong>$250.000</strong> (2 personas: <strong>$425.000</strong>)</div>
-                    <button class="btn-availability" onclick="openCalendlymasajesdeportivo()">Reservar Ahora</button>
+                    <button class="btn-availability" onclick="fbqTrackCustomEvent('MasajeDeportivoClick', 'Masaje Deportivo', 'masaje_deportivo'); trackCalendlyReserva('masaje_deportivo', 145000); openCalendlymasajesdeportivo()">Reservar Ahora</button>
                 </div>
 
                 <div class="service-card">
@@ -1273,7 +1390,7 @@
                     <div class="price-options">⏳ 60 minutos: <strong>$140.000</strong> (2 personas: <strong>$238.000</strong>)</div>
                     <div class="price-options">⏳ 90 minutos: <strong>$190.000</strong> (2 personas: <strong>$323.000</strong>)</div>
                     <div class="price-options">⏳ 120 minutos: <strong>$235.000</strong> (2 personas: <strong>$399.500</strong>)</div>
-                    <button class="btn-availability" onclick="openCalendlymasajetejidoprofundo()">Reservar Ahora</button>
+                    <button class="btn-availability" onclick="fbqTrackCustomEvent('MasajeTejidoClick', 'Masaje Tejido Profundo', 'masaje_tejido'); trackCalendlyReserva('masaje_tejido_profundo', 140000); openCalendlymasajetejidoprofundo()">Reservar Ahora</button>
                 </div>
 
                 <div class="service-card">
@@ -1287,7 +1404,7 @@
                     <div class="price-options">⏳ 30 minutos: <strong>$89.000</strong></div>
                     <div class="price-options">⏳ 60 minutos: <strong>$149.000</strong></div>
                     <div class="price-options">⏳ 90 minutos: <strong>$189.000</strong></div>
-                    <button class="btn-availability" onclick="openCalendlymasajesprenatal()">Reservar Ahora</button>
+                    <button class="btn-availability" onclick="fbqTrackCustomEvent('MasajePrenatalClick', 'Masaje Prenatal', 'masaje_prenatal'); trackCalendlyReserva('masaje_prenatal', 149000); openCalendlymasajesprenatal()">Reservar Ahora</button>
                 </div>
             </div>
         </section>
@@ -1305,7 +1422,7 @@
                 <div class="service-price">$140.000</div>
                 <div class="price-options">👥 Para 2 personas: <strong>$238.000</strong></div>
                 <div class="price-options">⏳ Duración: <strong>60 minutos</strong></div>
-                <button class="btn-availability" onclick="openCalendlylimpiezafacialintegral()">Reservar Ahora</button>
+                <button class="btn-availability" onclick="fbqTrackCustomEvent('FacialIntegralClick', 'Limpieza Facial Integral', 'facial_integral'); trackCalendlyReserva('limpieza_facial_integral', 140000); openCalendlylimpiezafacialintegral()">Reservar Ahora</button>
             </div>
 
             <div class="service-card">
@@ -1319,7 +1436,7 @@
                 <div class="service-price">$125.000</div>
                 <div class="price-options">👥 Para 2 personas: <strong>$212.000</strong></div>
                 <div class="price-options">⏳ Duración: <strong>45 minutos</strong></div>
-                <button class="btn-availability" onclick="openCalendlylimpiezafacialbasica()">Reservar Ahora</button>
+                <button class="btn-availability" onclick="fbqTrackCustomEvent('FacialBasicaClick', 'Limpieza Facial Básica', 'facial_basica'); trackCalendlyReserva('limpieza_facial_basica', 125000); openCalendlylimpiezafacialbasica()">Reservar Ahora</button>
             </div>
 
             <div class="service-card">
@@ -1333,7 +1450,7 @@
                 <div class="service-price">$95.000</div>
                 <div class="price-options">👥 Para 2 personas: <strong>$160.000</strong></div>
                 <div class="price-options">⏳ Duración: <strong>40 minutos</strong></div>
-                <button class="btn-availability" onclick="openCalendlyfacialhidratanterevitalizante()">Reservar Ahora</button>
+                <button class="btn-availability" onclick="fbqTrackCustomEvent('FacialHidratanteClick', 'Facial Hidratante', 'facial_hidratante'); trackCalendlyReserva('facial_hidratante_revitalizante', 95000); openCalendlyfacialhidratanterevitalizante()">Reservar Ahora</button>
             </div>
         </div>
         
@@ -1348,7 +1465,7 @@
             <p style="margin-top: 10px; color: #DAA520;">Tu destino de lujo para el bienestar y la relajación</p>
         </footer>
 
-        <div class="floating-whatsapp" onclick="openWhatsApp()"></div>
+        <div class="floating-whatsapp" onclick="return trackWhatsAppLead('https://wa.me/573134972564?text=' + encodeURIComponent('Hola! Me gustaría información sobre los servicios de anloe Spa Chía 🌿✨'), 'floating_button_spa')"></div>
         </div>
     </div>
 
@@ -1439,89 +1556,74 @@
             });
         }
 
+        // FUNCIÓN MODIFICADA CON TRACKING
         function openWhatsApp() {
             const phoneNumber = '573134972564';
             const message = encodeURIComponent('Hola! Me gustaría información sobre los servicios de anloe Spa Chía 🌿✨');
-            window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
+            return trackWhatsAppLead(whatsappUrl, 'floating_button_spa');
         }
 
-
-
+        // FUNCIONES DE CALENDLY CON TRACKING YA INTEGRADO EN LOS BOTONES
         function openCalendlysauna() {
-            // Reemplaza con TU enlace de Calendly
             Calendly.initPopupWidget({url: 'https://calendly.com/cusig-info/sauna'});
             return false;
         }
 
         function openCalendlymasajesrelajante() {
-            // Reemplaza con TU enlace de Calendly
             Calendly.initPopupWidget({url: 'https://calendly.com/cusig-info/masajes-relajante'});
             return false;
         }
 
         function openCalendlymasajesdeportivo() {
-            // Reemplaza con TU enlace de Calendly
             Calendly.initPopupWidget({url: 'https://calendly.com/cusig-info/masajes-deportivo'});
             return false;
         }
 
         function openCalendlymasajetejidoprofundo() {
-            // Reemplaza con TU enlace de Calendly
             Calendly.initPopupWidget({url: 'https://calendly.com/cusig-info/masajes-tejido-profundo'});
             return false;
         }
 
         function openCalendlymasajesprenatal() {
-            // Reemplaza con TU enlace de Calendly
             Calendly.initPopupWidget({url: 'https://calendly.com/cusig-info/masajes-prenatal'});
             return false;
         }
 
         function openCalendlylimpiezafacialintegral() {
-            // Reemplaza con TU enlace de Calendly
             Calendly.initPopupWidget({url: 'https://calendly.com/cusig-info/limpieza-facial-integral'});
             return false;
         }
 
         function openCalendlylimpiezafacialbasica() {
-            // Reemplaza con TU enlace de Calendly
             Calendly.initPopupWidget({url: 'https://calendly.com/cusig-info/limpieza-facial-basica'});
             return false;
         }
 
         function openCalendlyfacialhidratanterevitalizante() {
-            // Reemplaza con TU enlace de Calendly
             Calendly.initPopupWidget({url: 'https://calendly.com/cusig-info/facial-hidratante-revitalizante'});
             return false;
         }
 
         function openCalendlypaquete1() {
-            // Reemplaza con TU enlace de Calendly
             Calendly.initPopupWidget({url: 'https://calendly.com/cusig-info/paquete1'});
             return false;
         }
 
-
         function openCalendlypaquete2() {
-            // Reemplaza con TU enlace de Calendly
             Calendly.initPopupWidget({url: 'https://calendly.com/cusig-info/paquete2'});
             return false;
         }
 
         function openCalendlypaquete3() {
-            // Reemplaza con TU enlace de Calendly
             Calendly.initPopupWidget({url: 'https://calendly.com/cusig-info/paquete3'});
             return false;
         }
 
         function openCalendlypaquete4() {
-            // Reemplaza con TU enlace de Calendly
             Calendly.initPopupWidget({url: 'https://calendly.com/cusig-info/paquete4'});
             return false;
         }
-
-
-
 
         // Efecto parallax suave en scroll
         let ticking = false;
@@ -1540,6 +1642,21 @@
                     ticking = false;
                 });
                 ticking = true;
+            }
+        });
+        
+        // Verificar que los píxeles estén cargados
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof fbq === 'function') {
+                console.log('Meta Pixel cargado correctamente');
+            } else {
+                console.warn('Meta Pixel no está cargado');
+            }
+            
+            if (typeof gtag === 'function') {
+                console.log('Google Tags cargado correctamente');
+            } else {
+                console.warn('Google Tags no está cargado');
             }
         });
     </script>
